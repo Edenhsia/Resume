@@ -23,6 +23,7 @@
         <li><a href="#contact">Contact</a></li>
       </ul>
     </header>
+    <button class="nav-button"><i class="fa fa-bars"></i></button>
     <div class="container">
       <main>
         <div class="intro">
@@ -41,7 +42,7 @@
         <div class="section about" id="about">
           <h2>ABOUT</h2>
           <p>Engineer of product management for 2 years.<br>
-            Seeking a career change to a position involving web development.
+            Seeking a career change to a position involving web development.<br>
             Driven self-starter who always keep being curiousabout new things and interested in improving myself.</p>
         </div>
         <div class="section exp" id="exp">
@@ -137,71 +138,7 @@
     </div>
   </div>
   <script src="js/jquery-3.5.1.min.js"></script>
-  <script>
-    $(document).ready(function () {
-      //計算總共有幾個 item
-      const n = $(".item").length;
-      //計算 .item 的 width + margin
-      const moveTotal = parseInt($(".item").css('margin-left')) +
-        parseInt($(".item").css('margin-right')) + parseInt($(".item").css('width'));
-      //計算 margin-left 最大值，計算到倒數第二個的 margin-left
-      //-moveTotal * (n-1) - (-moveTotal) * 5
-      const marginMax = -moveTotal * (n - 6);
-      //取出 .list 的 margin-left 值
-      const marginLeft = () => parseInt($('.list').css('margin-left'));
-
-
-      $('.prev').click(function () {
-        $(this).attr('disabled', true);
-        //.prev 點擊後，.next 的 disabled 關掉，disabled 樣式拿掉
-        $('.next').attr('disabled', false);
-        $('.next').removeClass('disabled');
-        //如果 .list margin-left 剛好等於一個 moveTotal 寬的時候（資料在第二個時）
-        if (marginLeft() == -moveTotal) {
-          //先向左移動一個 moveTotal
-          $(".list").animate({
-            'margin-left': `+=${moveTotal}px`
-          });
-          //.prev 鍵 disabled，加上 disabled 樣式
-          $(this).attr('disabled', true);
-          $(this).addClass('disabled');
-        } else {
-          //其他，向左移動一個 moveTotal 距離
-          $(".list").animate({
-            'margin-left': `+=${moveTotal}px`
-          });
-          setTimeout(function () {
-            $(".prev").attr('disabled', false);
-          }, 400)
-        }
-      });
-
-      $('.next').click(function () {
-        $(this).attr('disabled', true);
-        // .next 點擊後，.prev 的 disabled 關掉，disabled 樣式拿掉
-        $('.prev').attr('disabled', false);
-        $('.prev').removeClass('disabled');
-        //如果 .list margin-left 剛好等於一個資料再倒數第二個位置時 margin-left
-        if (marginLeft() == marginMax) {
-          //先向右移動一個 moveTotal
-          $(".list").animate({
-            'margin-left': `-=${moveTotal}px`
-          });
-          //.next 鍵 disabled，加上 disabled 樣式
-          $(this).attr('disabled', true);
-          $(this).addClass('disabled');
-        } else {
-          //其他，向右移動一個 moveTotal 距離
-          $(".list").animate({
-            'margin-left': `-=${moveTotal}px`
-          });
-          setTimeout(function () {
-            $('.next').attr('disabled', false);
-          }, 400)
-        }
-      });
-    });
-  </script>
+  <script src="js/all.js"></script>
 </body>
 
 </html>

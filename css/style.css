@@ -28,6 +28,7 @@ body {
   width: 1000px;
   height: 100%;
   margin: auto;
+  position: relative;
 }
 
 .nav {
@@ -37,6 +38,7 @@ body {
   position: fixed;
   padding: 80px 40px;
   text-align: right;
+  z-index: 1;
 }
 
 .nav h1 {
@@ -79,6 +81,25 @@ body {
   left: 0;
 }
 
+.nav-button {
+  border: none;
+  outline: none;
+  color: var(--primary);
+  background-color: var(--primary-light);
+  position: fixed;
+  z-index: 1;
+  left: 20px;
+  top: 20px;
+  width: 40px;
+  height: 40px;
+  border-radius: 4px;
+  display: none;
+}
+
+.nav-button i {
+  font-size: 20px;
+}
+
 .container {
   width: 750px;
   margin-left: 250px;
@@ -87,8 +108,9 @@ body {
 }
 
 main {
-  width: 630px;
+  width: 100%;
   padding: 0 60px;
+  box-sizing: border-box;
   background-color: var(--secondary);
 }
 
@@ -267,7 +289,7 @@ main {
 .skill-list {
   position: relative;
   width: 550px;
-  margin-left: 50px;
+  margin: auto;
 }
 
 .list-mask {
@@ -421,4 +443,137 @@ button {
 .contact a:hover i {
   color: var(--primary);
   filter: drop-shadow(0 0 5px rgba(254, 176, 43, .5));
+}
+
+@media (max-width: 992px) {
+  .wrap {
+    width: auto;
+  }
+
+  .nav {
+    display: none;
+  }
+
+  .nav-show {
+    display: block;
+  }
+
+  .nav-button {
+    display: block;
+  }
+
+  .nav-button-on {
+    left: 270px;
+  }
+
+  .container {
+    width: 100%;
+    margin: auto;
+  }
+
+  main {
+    margin: auto;
+  }
+}
+
+@media (max-width: 767.98px) {
+
+  main {
+    padding: 0 20px;
+  }
+
+  .intro .image {
+    float: none;
+    margin: 0 auto 60px;
+  }
+
+  .intro .image::before {
+    left: -20px;
+    top: 20px;
+  }
+
+  .intro .image::after {
+    left: auto;
+    right: -20px;
+    top: -20px;
+  }
+
+  .intro .text {
+    float: none;
+    margin: auto;
+    text-align: center;
+  }
+
+  .intro .text h2 {
+    font-size: 36px;
+    line-height: 48px;
+    margin-bottom: 10px;
+  }
+
+  .section h2 {
+    font-size: 18px;
+    text-align: center;
+    padding: 0;
+  }
+
+  .section h2::before {
+    height: 8px;
+    left: 50%;
+    top: -15px;
+    transform: translate(-50%, 0);
+  }
+
+  .section>p {
+    padding: 0;
+    text-align: center;
+    font-size: 14px;
+  }
+
+  .exp li {
+    text-align: center;
+    padding-left: 0;
+  }
+
+  .exp li::before,
+  .exp li::after {
+    display: none;
+  }
+
+  .exp li span {
+    font-size: 16px;
+  }
+
+  .exp li h3 {
+    font-size: 18px;
+  }
+
+  .exp li p {
+    font-size: 14px;
+  }
+
+  button {
+    display: none;
+  }
+
+  .skill-list,
+  .list-mask,
+  .list {
+    width: 100%;
+  }
+
+  .list {
+    flex-wrap: wrap;
+  }
+
+  .list .item {
+    margin: 15px 5px;
+  }
+
+  .contact {
+    flex-direction: column;
+  }
+
+  .contact a+a {
+    margin-top: 15px;
+  }
 }
