@@ -358,6 +358,7 @@ button {
 
 .list .item img,
 .list .item p {
+  -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   transform-style: preserve-3d;
 }
@@ -483,16 +484,24 @@ button {
   }
 
   .intro .image {
+    width: 210px;
+    height: 280px;
     float: none;
-    margin: 0 auto 60px;
+    margin: 0 auto 40px;
   }
 
+  .intro .image img {}
+
   .intro .image::before {
+    width: 210px;
+    height: 280px;
     left: -20px;
     top: 20px;
   }
 
   .intro .image::after {
+    width: 210px;
+    height: 280px;
     left: auto;
     right: -20px;
     top: -20px;
