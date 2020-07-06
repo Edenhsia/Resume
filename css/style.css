@@ -490,8 +490,6 @@ button {
     margin: 0 auto 40px;
   }
 
-  .intro .image img {}
-
   .intro .image::before {
     width: 210px;
     height: 280px;
