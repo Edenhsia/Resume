@@ -12,7 +12,16 @@ $(document).ready(function () {
 
 
   // ---------- Skills左右鍵按鈕 ---------- 
-  //計算總共有幾個 item
+  // 畫面大小拖拉時，.list, .prev, .next 回至原始位置
+  $(window).resize(function () {
+    $('.list').css('margin-left', 'auto');
+    $('.prev').attr('disabled', true);
+    $('.prev').addClass('disabled');
+    $('.next').attr('disabled', false);
+    $('.next').removeClass('disabled');
+  })
+
+  // 計算總共有幾個 item
   const n = $('.item').length;
   //計算 .item 的 width + margin
   const moveTotal = parseInt($(".item").css('margin-left')) +
@@ -32,7 +41,7 @@ $(document).ready(function () {
     //如果 .list margin-left 剛好等於一個 moveTotal 寬的時候（資料在第二個時）
     if (marginLeft() == -moveTotal) {
       //先向左移動一個 moveTotal
-      $(".list").animate({
+      $('.list').animate({
         'margin-left': `+=${moveTotal}px`
       });
       //.prev 鍵 disabled，加上 disabled 樣式
@@ -40,11 +49,11 @@ $(document).ready(function () {
       $(this).addClass('disabled');
     } else {
       //其他，向左移動一個 moveTotal 距離
-      $(".list").animate({
+      $('.list').animate({
         'margin-left': `+=${moveTotal}px`
       });
       setTimeout(function () {
-        $(".prev").attr('disabled', false);
+        $('.prev').attr('disabled', false);
       }, 400)
     }
   });
@@ -57,7 +66,7 @@ $(document).ready(function () {
     //如果 .list margin-left 剛好等於一個資料再倒數第二個位置時 margin-left
     if (marginLeft() == marginMax) {
       //先向右移動一個 moveTotal
-      $(".list").animate({
+      $('.list').animate({
         'margin-left': `-=${moveTotal}px`
       });
       //.next 鍵 disabled，加上 disabled 樣式
@@ -65,7 +74,7 @@ $(document).ready(function () {
       $(this).addClass('disabled');
     } else {
       //其他，向右移動一個 moveTotal 距離
-      $(".list").animate({
+      $('.list').animate({
         'margin-left': `-=${moveTotal}px`
       });
       setTimeout(function () {
