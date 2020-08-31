@@ -22,10 +22,10 @@ $(document).ready(function () {
   })
 
   // 計算總共有幾個 item
-  const n = $('.item').length;
+  const n = $('.list .item').length;
   //計算 .item 的 width + margin
-  const moveTotal = parseInt($(".item").css('margin-left')) +
-    parseInt($(".item").css('margin-right')) + parseInt($(".item").css('width'));
+  const moveTotal = parseInt($(".list .item").css('margin-left')) +
+    parseInt($(".list .item").css('margin-right')) + parseInt($(".list .item").css('width'));
   //計算 margin-left 最大值，計算到倒數第二個的 margin-left
   //-moveTotal * (n-1) - (-moveTotal) * 5
   const marginMax = -moveTotal * (n - 6);
