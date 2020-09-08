@@ -262,6 +262,14 @@ main {
   font-size: 20px;
 }
 
+.project .item {
+  margin-bottom: 30px;
+}
+
+.project .item:last-child {
+  margin-bottom: 0;
+}
+
 .project .item:hover .text {
   opacity: 1;
 }
